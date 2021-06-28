@@ -1,0 +1,35 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="d-md-table-row">
+            <th class="d-md-table-cell">
+                EMBG
+            </th>
+            <th class="d-md-table-cell">
+                Ime i Prezime
+            </th>
+            <th class="d-md-table-cell">
+                Vozachka Dozvola
+            </th>
+            <th class="d-md-table-cell">
+                Vazhnost na dozvola
+            </th>
+            <th class="d-md-table-cell">
+                Vidi upravivuani vozila
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-md-table-row" th:each="vozach : ${vozachi}">
+            <td class="d-md-table-cell"><th:block th:text="${vozach.getEmbg()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${vozach.getImePrezime()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${vozach.getDozvola()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${vozach.getVazhnost()}"/></td>
+            <td class="d-md-table-cell"><a class="w-100 h-100 btn btn-primary" th:href="@{'/vozach/{id}' (id=${vozach.getEmbg()})}">Vozilo</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(".navbar-nav").append("<li class='nav-item'><a class='nav-link' href='/vozach/dodadi'>Dodadi Vozach</a></li>")
+    </script>
+</th:block>

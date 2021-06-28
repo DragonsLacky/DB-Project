@@ -1,0 +1,36 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <form class="offset-md-3 col-md-6 align-items-center justify-content-center" th:action="@{'/vozach/dodadi/{id}' (id=${vozach})}" th:method="POST">
+            <div class="form-group row">
+                <div class="input-group">
+                    <input id="vozach" class="form-control" type="hidden" th:value="${vozach}" name="vozach">
+                    <div class="col">
+                        <label for="registracija" class="sr-only-focusable col-form-label">registracija</label>
+                        <input id="registracija" class="form-control" type="text" name="registracija">
+                    </div>
+                    <div class="col">
+                        <label for="model" class="sr-only-focusable col-form-label">model</label>
+                        <input id="model" class="form-control" type="text" name="modelv">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="col">
+                        <label for="sostojba" class="sr-only-focusable col-form-label">sostojba</label>
+                        <input id="sostojba" class="form-control" type="text" name="sostojba">
+                    </div>
+                    <div class="col">
+                        <label for="servis" class="sr-only-focusable col-form-label">Broj na dozvola</label>
+                        <input id="servis" type="date" class="form-control" name="servis">
+                    </div>
+                    <div class="col">
+                        <label for="kapacitet" class="sr-only-focusable col-form-label">kapacitet</label>
+                        <input id="kapacitet" type="number" class="form-control" name="kapacitet">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 offset-md-4 justify-content-center text-center">
+                <input class="btn btn-primary" type="submit" value="Submit" name="Submit">
+            </div>
+        </form>
+    </div>
+</th:block>

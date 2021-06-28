@@ -1,0 +1,18 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <form th:action="@{/narachki/izvrshi}" th:method="POST">
+        <label>
+            <input name="narachka" type="hidden" th:value="${NarachkaId}">
+        </label>
+        <label>
+            <select name="embg">
+                <option th:each="vozach: ${vozachi}" th:value="${vozach.getEmbg()}" th:text="${vozach.getIme()+' '+vozach.getPrezime()}"></option>
+            </select>
+        </label>
+        <label>
+            <select name="registracija">
+                <option th:each="vozilo: ${vozila}" th:value="${vozilo.getRegistracija()}" th:text="${vozilo.getRegistracija()+', '+vozilo.getModel()}"></option>
+            </select>
+        </label>
+        <input class="btn btn-primary" type="submit" value="Submit" name="Submit">
+    </form>
+</th:block>

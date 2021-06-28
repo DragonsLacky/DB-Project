@@ -1,0 +1,59 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <form class="offset-md-3 col-md-5 align-items-center" th:action="@{/narachki/narachka}" th:method="POST">
+            <div class="col form-group">
+                <label for="dostavaDo" class="col-form-label">Date:</label>
+                <input id="dostavaDo" class="form-control" name="dostavaDo" type="datetime-local">
+            </div>
+            <div class="form-group row p-3">
+                <div class="input-group-append col-md-6">
+                    <label for="izvoz" class="p-1 col-form-label">Od</label>
+                    <select id="izvoz" class="custom-select" name="izvoz">
+                        <option th:each="magacin: ${magacini}" th:value="${magacin.getId()}" th:text="${magacin.getAdresa()+', '+magacin.getGrad()}"></option>
+                    </select>
+                </div>
+                <div class="input-group-append col-md-6">
+                    <label for="uvoz" class="sr-only-focusable p-1">Do</label>
+                    <select id="uvoz" class="custom-select input-group-append" name="uvoz">
+                        <option th:each="magacin: ${magacini}" th:value="${magacin.getId()}" th:text="${magacin.getAdresa()+', '+magacin.getGrad()}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="produkt col">
+                <div class="form-group  input-group-append">
+                    <div class="col">
+                        <label>kod na produkt</label>
+                        <input class="form-control" name='produkt' type='number'>
+                    </div>
+                    <div class="col">
+                        <label>kolicina</label>
+                        <input class="form-control" name='kolicina' type='number'>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <input class="btn btn-primary" type="submit" value="Submit" name="Submit">
+            </div>
+        </form>
+        <div class="col p-3 mt-4">
+            <div class="">
+                <button class="btn btn-primary" type="button" onclick="dodadiProduct()" >Dodadi produkt</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function dodadiProduct(){
+            $(".produkt").append("<div class=\"form-group  input-group-append\">\n" +
+                "                <div class=\"col\">\n" +
+                "                    <label>kod na produkt</label>\n" +
+                "                    <input class=\"form-control\" name='produkt' type='number'>\n" +
+                "                </div>\n" +
+                "                <div class=\"col\">\n" +
+                "                    <label>kolicina</label>\n" +
+                "                    <input class=\"form-control\" name='kolicina' type='number'>\n" +
+                "                </div>\n" +
+                "            </div>")
+        }
+    </script>
+</th:block>

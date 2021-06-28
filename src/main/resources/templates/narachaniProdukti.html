@@ -1,0 +1,44 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="d-md-table-row">
+            <th class="d-md-table-cell">
+                Broj na Produkt
+            </th>
+            <th class="d-md-table-cell">
+                Ime
+            </th>
+            <th class="d-md-table-cell">
+                Proizvoditel
+            </th>
+            <th class="d-md-table-cell">
+                Kolicina
+            </th>
+            <th class="d-md-table-cell">
+                Edinechna tezina
+            </th>
+            <th class="d-md-table-cell">
+                Edinechna cena
+            </th>
+            <th class="d-md-table-cell">
+                Vkupna tezina
+            </th>
+            <th class="d-md-table-cell">
+                Vkupna cena
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-md-table-row" th:each="produkt : ${produkti}">
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getId()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getIme()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getProizvoditel()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getKolicina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getEdinechnaTezina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getEdinechnaCena()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getVkupnaTezina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getVkupnaCena()}"/></td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>

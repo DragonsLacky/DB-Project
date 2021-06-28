@@ -1,0 +1,48 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="d-md-table-row">
+            <th class="d-md-table-cell">
+                Broj na produkt
+            </th>
+            <th class="d-md-table-cell">
+                Ime
+            </th>
+            <th class="d-md-table-cell">
+                Proizvoditel
+            </th>
+            <th class="d-md-table-cell">
+                Tezina
+            </th>
+            <th class="d-md-table-cell">
+                Kolicina
+            </th>
+            <th class="d-md-table-cell">
+                Cena
+            </th>
+            <th class="d-md-table-cell">
+                Vrednost
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-md-table-row" th:each="produkt : ${produkti}">
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getId().getProdukt()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getImeProdukt()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getProizvoditel()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getTezina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getKolicina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getCena()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getVrednost()}"/></td>
+            <td class="d-md-table-cell">
+                <form class="form-inline" th:action="@{/magacin/kolicina}" th:method="GET">
+                    <input type="hidden" th:value="${produkt.getId().getProdukt()}" name="idProdukt">
+                    <input type="hidden" th:value="${magacinId}" name="idMagacin">
+                    <input type="submit" class="btn btn-primary w-100 h-100" value="Promeni kolicina">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>

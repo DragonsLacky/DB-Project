@@ -1,0 +1,36 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <form class="offset-md-3 col-md-6 align-items-center justify-content-center" th:action="@{/produkt/dodadi}" th:method="POST">
+            <div class="form-group row">
+                <div class="input-group">
+                    <div class="col">
+                        <label for="ime" class="sr-only-focusable col-form-label">Ime</label>
+                        <input id="ime" type="text" class="form-control" name="ime">
+                    </div>
+                    <div class="col">
+                        <label for="proizvoditel" class="sr-only-focusable col-form-label">Proizvoditel</label>
+                        <input id="proizvoditel" type="text" class="form-control" name="proizvoditel">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="col">
+                        <label for="kolicina" class="sr-only-focusable col-form-label">Kolicina</label>
+                        <input id="kolicina" type="number" class="form-control" name="kolicina">
+                    </div>
+                    <div class="col">
+                        <label for="tezina" class="sr-only-focusable col-form-label">Tezina</label>
+                        <input id="tezina" type="text" class="form-control" name="tezina">
+                    </div>
+                    <div class="col">
+                        <label for="cena" class="sr-only-focusable col-form-label">Cena</label>
+                        <input id="cena" type="text" class="form-control" name="cena">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 offset-md-4 justify-content-center text-center">
+                <input class="btn btn-primary" type="submit" value="Submit" name="Submit">
+            </div>
+        </form>
+    </div>
+</th:block>

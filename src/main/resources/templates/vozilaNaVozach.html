@@ -1,0 +1,36 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="d-md-table-row">
+            <th class="d-md-table-cell">
+                Registracija
+            </th>
+            <th class="d-md-table-cell">
+                Model
+            </th>
+            <th class="d-md-table-cell">
+                Kapacitet
+            </th>
+            <th class="d-md-table-cell">
+                Sostojba
+            </th>
+            <th class="d-md-table-cell">
+                Izvrshen Servis
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-md-table-row" th:each="vozilo : ${vozila}">
+            <td class="d-md-table-cell"><th:block th:text="${vozilo.getRegistracija()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${vozilo.getModel()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${vozilo.getKapacitet()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${vozilo.getSostojba()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${vozilo.getDataServis()}"/></td>
+        </tr>
+        </tbody>
+        <input id="vozach" type="hidden" th:value="${idVozach}">
+    </table>
+    <script>
+        $(".navbar-nav").append("<li class='nav-item'><a class='nav-link' href='/vozach/dodadi/"+$("#vozach").val()+"'>Dodadi Vozilo</a></li>")
+    </script>
+</th:block>

@@ -1,0 +1,21 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <form class="offset-md-3 col-md-6 align-items-center justify-content-center" th:action="@{/magacin/dodadi}" th:method="POST">
+            <div class="form-group row">
+                <div class="col">
+                    <label for="adresa" class="sr-only-focusable col-form-label">Adresa</label>
+                    <input id="adresa" class="form-control" name="adresa">
+                </div>
+                <div class="col">
+                    <label for="grad" class="sr-only-focusable col-form-label">Grad</label>
+                    <select id="grad" class="custom-select input-group-append" name="grad">
+                        <option th:each="grad: ${gradovi}" th:value="${grad.getId()}" th:text="${grad.getImeGrad()}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 offset-md-4 justify-content-center text-center">
+                <input class="btn btn-primary" type="submit" value="Submit" name="Submit">
+            </div>
+        </form>
+    </div>
+</th:block>

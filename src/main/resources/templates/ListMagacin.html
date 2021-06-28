@@ -1,0 +1,36 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="d-md-table-row">
+            <th class="d-md-table-cell">
+                Broj na magacin
+            </th>
+            <th class="d-md-table-cell">
+                Adresa
+            </th>
+            <th class="d-md-table-cell">
+                Grad
+            </th>
+            <th class="d-md-table-cell">
+
+            </th>
+<!--            <th class="d-md-table-cell">-->
+
+<!--            </th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-md-table-row" th:each="magacin : ${magacini}">
+            <td class="d-md-table-cell"><th:block th:text="${magacin.getId()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${magacin.getAdresa()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${magacin.getGrad()}"/></td>
+            <td><a class="btn btn-primary w-100 h-100" th:href="@{'/magacin/{id}' (id=${magacin.getId()})}">Vidi produkti</a></td>
+<!--            <td><a class="btn btn-primary w-100 h-100" th:href="@{'/magacin/izbrishi/{id}' (id=${magacin.getId()})}">Izbrishi</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(".navbar-nav").append("<li class='nav-item'><a class='nav-link' href='/magacin/dodadi'>Dodadi magacin</a></li>")
+        addButton()
+    </script>
+</th:block>

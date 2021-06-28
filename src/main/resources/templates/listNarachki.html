@@ -1,0 +1,68 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="d-md-table-row">
+            <th class="d-md-table-cell">
+                Broj na Narachka
+            </th>
+            <th class="d-md-table-cell">
+                Broj na magacin za izvoz
+            </th>
+            <th class="d-md-table-cell">
+                Adresa na magacin za izvoz
+            </th>
+            <th class="d-md-table-cell">
+                Grad na magacin za izvoz
+            </th>
+            <th class="d-md-table-cell">
+                Broj na magacin za uvoz
+            </th>
+            <th class="d-md-table-cell">
+                Adresa na magacin za uvoz
+            </th>
+            <th class="d-md-table-cell">
+                Grad na magacin za uvoz
+            </th>
+            <th class="d-md-table-cell">
+                EMBG na vozach
+            </th>
+            <th class="d-md-table-cell">
+                Ime i prezime na vozach
+            </th>
+            <th class="d-md-table-cell">
+                Kraen rok za dostava
+            </th>
+            <th>
+                Dostavena na
+            </th>
+            <th class="d-md-table-cell">
+
+            </th>
+            <th class="d-md-table-cell">
+
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-md-table-row" th:each="narachka : ${narachki}">
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getNarachka()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getIdIzvoz()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getAdresaIzvoz()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getGradIzvoz()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getIdUvoz()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getAdresaUvoz()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getGradUvoz()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getVozachEMBG()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getVozachImePrezime()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getRokDostava()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${narachka.getDostavena()}"/></td>
+            <td class="d-md-table-cell"><form th:action="@{'/narachki/izvrshi/{id}' (id=${narachka.getNarachka()})}" th:method="GET"  class="form-inline"><input class="btn btn-primary w-100 h-100" th:disabled="${narachka.getSostojba()} == 'DOSTAVENA'" type="submit" value="Potvrdi"></form></td>
+            <td class="d-md-table-cell"><a class="btn btn-primary w-100 h-100" th:href="@{'/narachki/narachka/{id}' (id=${narachka.getNarachka()})}">Vidi produkti</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(".navbar-nav").append("<li class='nav-item'><a class='nav-link' href='/narachki/narachaj'>Narachaj</a></li>")
+        addButton()
+    </script>
+</th:block>

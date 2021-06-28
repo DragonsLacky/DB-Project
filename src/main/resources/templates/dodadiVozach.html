@@ -1,0 +1,35 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="row">
+        <form class="offset-md-3 col-md-6 align-items-center justify-content-center" th:action="@{/vozach/dodadi}" th:method="POST">
+            <div class="form-group row">
+                <div class="input-group">
+                    <div class="col">
+                        <label for="ime" class="sr-only-focusable col-form-label">Ime</label>
+                        <input id="ime" class="form-control" type="text" name="ime">
+                    </div>
+                    <div class="col">
+                        <label for="prezime" class="sr-only-focusable col-form-label">Prezime</label>
+                        <input id="prezime" class="form-control" type="text" name="prezime">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="col">
+                        <label for="embg" class="sr-only-focusable col-form-label">EMBG</label>
+                        <input id="embg" class="form-control" type="text" name="embg">
+                    </div>
+                    <div class="col">
+                        <label for="dozvola" class="sr-only-focusable col-form-label">Broj na dozvola</label>
+                        <input id="dozvola" type="text" class="form-control" name="dozvola">
+                    </div>
+                    <div class="col">
+                        <label for="vazhnost" class="sr-only-focusable col-form-label">vazhnost do</label>
+                        <input id="vazhnost" type="date" class="form-control" name="vazhnost">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 offset-md-4 justify-content-center text-center">
+                <input class="btn btn-primary" type="submit" value="Submit" name="Submit">
+            </div>
+        </form>
+    </div>
+</th:block>

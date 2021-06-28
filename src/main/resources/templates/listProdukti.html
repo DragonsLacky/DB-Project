@@ -1,0 +1,51 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <table class="table table-bordered text-center">
+        <thead>
+        <tr class="d-md-table-row">
+            <th class="d-md-table-cell">
+                Broj na produkt
+            </th>
+            <th class="d-md-table-cell">
+                Ime
+            </th>
+            <th class="d-md-table-cell">
+                Proizvoditel
+            </th>
+            <th class="d-md-table-cell">
+                Kolicina
+            </th>
+            <th class="d-md-table-cell">
+                Tezina (kg)
+            </th>
+            <th class="d-md-table-cell">
+                Cena
+            </th>
+            <th class="d-md-table-cell">
+                Vkupna tezina (kg)
+            </th>
+            <th class="d-md-table-cell">
+                Vrednost
+            </th>
+            <th class="d-md-table-cell">
+
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="d-md-table-row" th:each="produkt : ${produkti}">
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getId()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getIme()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getProizvoditel()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getKolicina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getTezina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getCena()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getVkupnaTezina()}"/></td>
+            <td class="d-md-table-cell"><th:block th:text="${produkt.getVrednost()}"/></td>
+            <td class="d-md-table-cell"><a class="btn btn-primary w-100 h-100" th:href="@{'/produkt/cena/{id}' (id=${produkt.getId()})}">Promeni cena</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        $(".navbar-nav").append("<li class='nav-item'><a class='nav-link' href='/produkt/dodadi'>Dodadi nov produkt</a></li>")
+    </script>
+</th:block>
